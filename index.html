@@ -1,0 +1,661 @@
+<html>
+        <head><title>Downloaded HTML</title></head>
+        <body>
+            <pre style="white-space: pre-wrap; word-wrap: break-word;"><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro-Bioscience Calculus Explorer | SFP Malaysia</title>
+    <!-- Tailwind CSS for modern responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Chart.js for beautiful, responsive charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- KaTeX for elegant math rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <!-- FontAwesome for beautiful icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Header banner featuring Malaysian Agro-tech theme -->
+    <header class="bg-gradient-to-r from-emerald-800 to-teal-700 text-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-5 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-4">
+                <div class="bg-white/10 p-3 rounded-xl backdrop-blur-sm border border-white/20">
+                    <i class="fa-solid fa-seedling text-3xl text-emerald-300"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold tracking-tight">Agro-Bioscience Calculus Explorer</h1>
+                    <p class="text-xs sm:text-sm text-emerald-100 font-medium">
+                        Interactive Learning Tool for <span class="underline decoration-emerald-400">Agro Product Technology (SFP)</span> Undergraduates
+                    </p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-3 bg-emerald-900/40 px-4 py-2 rounded-lg border border-emerald-600/30 text-xs sm:text-sm">
+                <span class="flex h-2 w-2 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span>Topic: <strong>Derivatives <span class="text-emerald-300">f'(x)</span> in Crop Kinetics</strong></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 py-8 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Left Sidebar: Parameters & Mathematical Formulation (5 Cols) -->
+        <section class="lg:col-span-5 flex flex-col gap-6">
+            
+            <!-- Context Card -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                <div class="flex items-center space-x-2 text-emerald-700 font-semibold mb-3">
+                    <i class="fa-solid fa-flask"></i>
+                    <h2>The Malaysian Agro-Biotech Scenario</h2>
+                </div>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    Optimizing the cultivation of <strong>Grey Oyster Mushrooms (<em>Pleurotus sajor-caju</em>)</strong> utilizing recycled <strong>Oil Palm Fronds (OPF)</strong> is a critical research area in Malaysia's zero-waste agricultural paradigm. In Agro-Product Technology, predicting yield limits and instantaneous harvesting rates is crucial for commercial factory scheduling.
+                </p>
+                <div class="mt-4 p-3 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-between text-xs">
+                    <span class="text-slate-500"><i class="fa-solid fa-book-open mr-1"></i> Data Reference:</span>
+                    <a href="#" class="text-emerald-600 hover:text-emerald-700 font-semibold transition" title="MARDI Manual Teknologi Penanaman Cendawan Tiram Kelabu">
+                        MARDI Mushroom Technology Manual
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mathematical Formulas Card -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center space-x-2 text-slate-800 font-bold">
+                        <i class="fa-solid fa-calculator text-emerald-600"></i>
+                        <h3>Mathematical Growth Kinetics</h3>
+                    </div>
+                    <span class="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full font-semibold">Logistic Model</span>
+                </div>
+                
+                <div class="space-y-4">
+                    <!-- Cumulative Yield Formula -->
+                    <div class="p-4 bg-emerald-50/50 rounded-xl border border-emerald-100/50">
+                        <span class="text-xs font-semibold text-emerald-800 uppercase tracking-wider block mb-1">Cumulative Yield Function f(x)</span>
+                        <div id="math-function" class="py-2 text-lg text-slate-800 overflow-x-auto"></div>
+                        <p class="text-xs text-slate-500 mt-1">
+                            Calculates total mushroom biomass yield (g per bag) at Day <span class="italic font-semibold">x</span>.
+                        </p>
+                    </div>
+
+                    <!-- Derivative Growth Rate Formula -->
+                    <div class="p-4 bg-teal-50/50 rounded-xl border border-teal-100/50">
+                        <span class="text-xs font-semibold text-teal-800 uppercase tracking-wider block mb-1">Instantaneous Growth Rate f'(x)</span>
+                        <div id="math-derivative" class="py-2 text-lg text-slate-800 overflow-x-auto"></div>
+                        <p class="text-xs text-slate-500 mt-1">
+                            Calculates growth rate (g/day) at Day <span class="italic font-semibold">x</span> (The first derivative representing crop speed).
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parameter Tuning Card -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center space-x-2 text-slate-800 font-bold">
+                        <i class="fa-solid fa-sliders text-emerald-600"></i>
+                        <h3>Simulation Parameters</h3>
+                    </div>
+                    <button id="reset-params" class="text-xs text-emerald-600 hover:text-emerald-700 font-semibold transition">
+                        <i class="fa-solid fa-rotate-left mr-1"></i> Reset
+                    </button>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- Parameter L -->
+                    <div>
+                        <div class="flex justify-between text-sm font-medium text-slate-700 mb-1">
+                            <span class="flex items-center gap-1">Carrying Capacity (<span class="italic font-semibold text-emerald-600">L</span>) <i class="fa-solid fa-circle-info text-slate-400 text-xs" title="Max potential mushroom yield per bag (grams)"></i></span>
+                            <span id="val-L" class="font-bold text-slate-900">250g</span>
+                        </div>
+                        <input type="range" id="param-L" min="150" max="400" step="10" value="250" class="w-full accent-emerald-600 cursor-pointer h-2 bg-slate-200 rounded-lg appearance-none">
+                    </div>
+
+                    <!-- Parameter k -->
+                    <div>
+                        <div class="flex justify-between text-sm font-medium text-slate-700 mb-1">
+                            <span class="flex items-center gap-1">Growth Coefficient (<span class="italic font-semibold text-emerald-600">k</span>) <i class="fa-solid fa-circle-info text-slate-400 text-xs" title="Determines steepness/speed of growth cycle"></i></span>
+                            <span id="val-k" class="font-bold text-slate-900">0.25</span>
+                        </div>
+                        <input type="range" id="param-k" min="0.10" max="0.50" step="0.02" value="0.25" class="w-full accent-emerald-600 cursor-pointer h-2 bg-slate-200 rounded-lg appearance-none">
+                    </div>
+
+                    <!-- Parameter x0 -->
+                    <div>
+                        <div class="flex justify-between text-sm font-medium text-slate-700 mb-1">
+                            <span class="flex items-center gap-1">Peak Day (<span class="italic font-semibold text-emerald-600">x₀</span>) <i class="fa-solid fa-circle-info text-slate-400 text-xs" title="The day maximum daily growth occurs (inflection point)"></i></span>
+                            <span id="val-x0" class="font-bold text-slate-900">Day 15</span>
+                        </div>
+                        <input type="range" id="param-x0" min="10" max="25" step="1" value="15" class="w-full accent-emerald-600 cursor-pointer h-2 bg-slate-200 rounded-lg appearance-none">
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Right Column: Interactive Graph & Layman Breakdown (7 Cols) -->
+        <section class="lg:col-span-7 flex flex-col gap-6">
+            
+            <!-- Graph Visualization Card -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex flex-col">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-800">Growth Curve vs. First Derivative</h3>
+                        <p class="text-xs text-slate-500">Click anywhere along the chart to probe specific biological rates</p>
+                    </div>
+                    <div class="flex items-center gap-4 text-xs">
+                        <span class="flex items-center gap-1.5 font-medium text-emerald-600">
+                            <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span> Yield f(x)
+                        </span>
+                        <span class="flex items-center gap-1.5 font-medium text-teal-600">
+                            <span class="w-3 h-3 rounded bg-teal-500 inline-block"></span> Growth Rate f'(x)
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Canvas container -->
+                <div class="relative w-full h-80 sm:h-96">
+                    <canvas id="growthChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Interactive Live Data Readout Card -->
+            <div id="probe-panel" class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-2xl p-6 shadow-lg transition-all duration-300">
+                <div class="flex items-center justify-between border-b border-slate-700/60 pb-4 mb-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-emerald-500/20 text-emerald-400 p-2.5 rounded-lg border border-emerald-500/30">
+                            <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-100">Live Derivative Prober</h4>
+                            <p class="text-xs text-slate-400">Calculus translation for Agro-tech production</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs uppercase tracking-wider text-emerald-400 font-bold block">Selected Timeline</span>
+                        <span id="probe-day" class="text-2xl font-black text-white">Day 15</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                    <!-- Cumulative Reading -->
+                    <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/40">
+                        <div class="text-xs text-slate-400 font-semibold mb-1 uppercase">Cumulative Biomass f(x)</div>
+                        <div class="flex items-baseline space-x-1.5">
+                            <span id="probe-yield" class="text-2xl font-bold text-emerald-400">125.00</span>
+                            <span class="text-xs text-slate-400 font-medium">grams / bag</span>
+                        </div>
+                        <div class="text-[10px] text-slate-500 mt-1">Total crop weight collected up to this point</div>
+                    </div>
+
+                    <!-- Derivative Reading -->
+                    <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/40">
+                        <div class="text-xs text-slate-400 font-semibold mb-1 uppercase">Instantaneous Speed f'(x)</div>
+                        <div class="flex items-baseline space-x-1.5">
+                            <span id="probe-rate" class="text-2xl font-bold text-teal-400">15.63</span>
+                            <span class="text-xs text-slate-400 font-medium">grams / bag / day</span>
+                        </div>
+                        <div class="text-[10px] text-slate-500 mt-1">Speed at which mushrooms are currently growing</div>
+                    </div>
+                </div>
+
+                <!-- Layman Explanation Box -->
+                <div class="bg-emerald-950/40 border border-emerald-500/20 rounded-xl p-4">
+                    <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider block mb-1">
+                        <i class="fa-solid fa-graduation-cap mr-1"></i> Layman translation &amp; Agro Action
+                    </span>
+                    <p id="probe-explanation" class="text-sm text-slate-200 leading-relaxed">
+                        Loading localized insights...
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Educational Section and Micro-Assessment -->
+    <section class="max-w-7xl w-full mx-auto px-4 pb-12 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h3 class="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-clipboard-question text-emerald-600"></i>
+                <span>Agro Product Tech Student Challenge</span>
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Conceptual Lesson -->
+                <div class="space-y-4">
+                    <h4 class="font-bold text-slate-700 flex items-center gap-1.5 text-base">
+                        <i class="fa-solid fa-lightbulb text-amber-500"></i>
+                        Why do we need the Derivative in Food &amp; Agro-Tech?
+                    </h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        In commercial oyster mushroom farms across Selangor and Johor, resource utilization is vital. Looking only at the total weight curve $f(x)$ tells you how much crop you have, but not <strong>how fast</strong> it is biological compounding. 
+                    </p>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        By mapping the first derivative $f'(x)$, food processing factories can target the absolute peak day of crop acceleration. This maximum rate allows processors to optimize downstream logistics: arranging refrigeration, allocating processing lab labor, and calculating dehydration schedules exactly when the growth rate is maximal.
+                    </p>
+                </div>
+
+                <!-- Interactive Quiz Form -->
+                <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Quick Quiz</span>
+                        <h4 class="font-bold text-slate-800 mt-2 text-sm sm:text-base">
+                            At what physiological point does the crop growth speed $f'(x)$ reach its absolute maximum value?
+                        </h4>
+                        
+                        <div class="mt-4 space-y-2">
+                            <label class="flex items-center p-3 bg-white rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50 transition">
+                                <input type="radio" name="quiz" value="a" class="accent-emerald-600 mr-3">
+                                <span class="text-xs sm:text-sm text-slate-700">When cumulative yield $f(x)$ reaches carrying capacity $L$.</span>
+                            </label>
+                            <label class="flex items-center p-3 bg-white rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50 transition">
+                                <input type="radio" name="quiz" value="b" class="accent-emerald-600 mr-3">
+                                <span class="text-xs sm:text-sm text-slate-700">At the Inflection Point ($x_0$), where the growth curvature changes shape.</span>
+                            </label>
+                            <label class="flex items-center p-3 bg-white rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50 transition">
+                                <input type="radio" name="quiz" value="c" class="accent-emerald-600 mr-3">
+                                <span class="text-xs sm:text-sm text-slate-700">At Day 0, when inoculation is fresh and nutrients are richest.</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-4 border-t border-slate-200/60 flex items-center justify-between">
+                        <button id="btn-submit-quiz" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-lg transition">
+                            Submit Answer
+                        </button>
+                        <span id="quiz-feedback" class="text-xs font-semibold"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center border-t border-slate-800 text-xs mt-auto">
+        <p>© 2026 Agro-Product Technology Academic Sandbox. Built for student analysis and crop modeling.</p>
+        <p class="mt-1 text-slate-600">Simulations modeled on logistic biological growth profiles adapted from MARDI specifications.</p>
+    </footer>
+
+    <script>
+        // Simulation default state
+        let L_val = 250;  // Carrying capacity
+        let k_val = 0.25; // Growth speed
+        let x0_val = 15;  // Inflection point day
+        
+        let chartInstance = null;
+        let selectedDay = 15;
+
+        // Compute f(x) - Cumulative Logistics Growth
+        function computeYield(x, L, k, x0) {
+            return L / (1 + Math.exp(-k * (x - x0)));
+        }
+
+        // Compute f'(x) - First Derivative
+        function computeGrowthRate(x, L, k, x0) {
+            const expTerm = Math.exp(-k * (x - x0));
+            const denominator = Math.pow(1 + expTerm, 2);
+            return (L * k * expTerm) / denominator;
+        }
+
+        // Function to render Math via KaTeX safely
+        function renderMath() {
+            if (window.katex) {
+                katex.render(
+                    `f(x) = \\frac{L}{1 + e^{-k(x - x_0)}}`, 
+                    document.getElementById('math-function'), 
+                    { throwOnError: false, displayMode: true }
+                );
+                katex.render(
+                    `f'(x) = \\frac{L \\cdot k \\cdot e^{-k(x-x_0)}}{(1 + e^{-k(x-x_0)})^2}`, 
+                    document.getElementById('math-derivative'), 
+                    { throwOnError: false, displayMode: true }
+                );
+            }
+        }
+
+        // Generate personalized academic explanation based on growth stage
+        function getLaymanExplanation(day, yieldVal, rateVal, x0, L) {
+            const difference = day - x0;
+            const yieldPercentage = (yieldVal / L) * 100;
+
+            if (day < x0 - 4) {
+                return `<strong>Early Mycelium Colonization:</strong> The spores/spawn are slowly digesting the lignin and cellulose within the palm frond substrate. Growth rate ($f'(x)$) is low (${rateVal.toFixed(2)} g/day) because cells are synthesizing metabolic enzymes. <strong>Agro-Action:</strong> Keep humidity at 90% and protect spawning bags from intense light.`;
+            } else if (day >= x0 - 4 && day <= x0 + 4) {
+                if (Math.abs(difference) <= 1) {
+                    return `<strong>Inflection Peak (Maximum Growth Rate)!</strong> At Day ${day}, the derivative reaches its absolute peak of ${rateVal.toFixed(2)} g/day. Biomass conversion is at maximum efficiency. <strong>Agro-Action:</strong> This is your optimal metabolic sweet spot. This high activity generates heat; ensure strong ventilation to avoid overheating inside the growing house!`;
+                } else if (day < x0) {
+                    return `<strong>Acceleration Phase:</strong> The crop is hitting exponential growth! Every day, mushrooms compile weight faster than the day before ($f''(x) > 0$). You are approaching the peak conversion window rapidly.`;
+                } else {
+                    return `<strong>Post-Peak Deceleration:</strong> Although total mushrooms ($f(x)$) are still growing, the <em>speed</em> of adding new weight has started to decline because easy-access food inside the bag is reducing.`;
+                }
+            } else {
+                if (yieldPercentage > 95) {
+                    return `<strong>Nutritional Plateau:</strong> Mushroom bag is at ${yieldPercentage.toFixed(0)}% of carrying capacity. The derivative $f'(x)$ drops down to a crawl (${rateVal.toFixed(2)} g/day). <strong>Agro-Action:</strong> Stop spraying water. Harvest immediately! Delaying harvest reduces mushroom shelf life and triggers spore degradation.`;
+                } else {
+                    return `<strong>Maturation Stage:</strong> Growth is slowing down. The bag's energy resources are consolidating into mature fruit bodies. Prepare harvesting trays.`;
+                }
+            }
+        }
+
+        // Update the textual probe interface dynamically
+        function updateProbeUI(day) {
+            selectedDay = day;
+            const yieldVal = computeYield(day, L_val, k_val, x0_val);
+            const rateVal = computeGrowthRate(day, L_val, k_val, x0_val);
+
+            document.getElementById('probe-day').textContent = `Day ${day}`;
+            document.getElementById('probe-yield').textContent = yieldVal.toFixed(2);
+            document.getElementById('probe-rate').textContent = rateVal.toFixed(2);
+            
+            const explanation = getLaymanExplanation(day, yieldVal, rateVal, x0_val, L_val);
+            document.getElementById('probe-explanation').innerHTML = explanation;
+        }
+
+        // Setup double-axis graph datasets
+        function generateChartData() {
+            const labels = [];
+            const yieldData = [];
+            const rateData = [];
+
+            for (let day = 0; day <= 30; day++) {
+                labels.push(day);
+                yieldData.push(computeYield(day, L_val, k_val, x0_val));
+                rateData.push(computeGrowthRate(day, L_val, k_val, x0_val));
+            }
+
+            return { labels, yieldData, rateData };
+        }
+
+        function createOrUpdateChart() {
+            const data = generateChartData();
+
+            if (chartInstance) {
+                chartInstance.data.labels = data.labels;
+                chartInstance.data.datasets[0].data = data.yieldData;
+                chartInstance.data.datasets[1].data = data.rateData;
+                
+                // Keep the dynamic vertical marker at current selectedDay
+                updateVerticalLine();
+                
+                chartInstance.update('none'); // Update without full rebuild animation
+            } else {
+                const ctx = document.getElementById('growthChart').getContext('2d');
+                
+                // Add a custom plugin to draw a vertical highlight line for the clicked day
+                const verticalLinePlugin = {
+                    id: 'verticalLine',
+                    afterDraw: (chart) => {
+                        if (selectedDay !== null) {
+                            const ctx = chart.ctx;
+                            const xAxis = chart.scales.x;
+                            const xValue = xAxis.getPixelForValue(selectedDay);
+                            const topY = chart.scales.yYield.top;
+                            const bottomY = chart.scales.yYield.bottom;
+
+                            ctx.save();
+                            ctx.beginPath();
+                            ctx.moveTo(xValue, topY);
+                            ctx.lineTo(xValue, bottomY);
+                            ctx.lineWidth = 2;
+                            ctx.setLineDash([6, 4]);
+                            ctx.strokeStyle = 'rgba(239, 68, 68, 0.7)'; // Red dashed indicator line
+                            ctx.stroke();
+                            
+                            // Highlight intersection points
+                            const metaYield = chart.getDatasetMeta(0);
+                            const metaRate = chart.getDatasetMeta(1);
+                            
+                            const pointYieldY = metaYield.data[selectedDay].y;
+                            const pointRateY = metaRate.data[selectedDay].y;
+
+                            // Draw circle around selected points
+                            ctx.beginPath();
+                            ctx.arc(xValue, pointYieldY, 6, 0, 2 * Math.PI);
+                            ctx.fillStyle = '#10b981';
+                            ctx.strokeStyle = '#fff';
+                            ctx.lineWidth = 2;
+                            ctx.fill();
+                            ctx.stroke();
+
+                            ctx.beginPath();
+                            ctx.arc(xValue, pointRateY, 6, 0, 2 * Math.PI);
+                            ctx.fillStyle = '#14b8a6';
+                            ctx.strokeStyle = '#fff';
+                            ctx.lineWidth = 2;
+                            ctx.fill();
+                            ctx.stroke();
+
+                            ctx.restore();
+                        }
+                    }
+                };
+
+                chartInstance = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: data.labels,
+                        datasets: [
+                            {
+                                label: 'Total Yield f(x) (g)',
+                                data: data.yieldData,
+                                borderColor: '#10b981',
+                                backgroundColor: 'rgba(16, 185, 129, 0.05)',
+                                fill: true,
+                                tension: 0.3,
+                                borderWidth: 3,
+                                yAxisID: 'yYield',
+                                pointRadius: 0,
+                                pointHoverRadius: 6
+                            },
+                            {
+                                label: "Growth Speed f'(x) (g/day)",
+                                data: data.rateData,
+                                borderColor: '#14b8a6',
+                                borderDash: [2, 2],
+                                tension: 0.3,
+                                borderWidth: 3,
+                                yAxisID: 'yRate',
+                                pointRadius: 0,
+                                pointHoverRadius: 6
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        interaction: {
+                            mode: 'index',
+                            intersect: false,
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed.y !== null) {
+                                            label += context.parsed.y.toFixed(2);
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                grid: {
+                                    display: false
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Days Post-Inoculation (Harvest Cycle Timeline)',
+                                    font: {
+                                        weight: '600',
+                                        size: 11
+                                    }
+                                }
+                            },
+                            yYield: {
+                                type: 'linear',
+                                display: true,
+                                position: 'left',
+                                title: {
+                                    display: true,
+                                    text: 'Cumulative Yield (g)',
+                                    font: {
+                                        weight: '600',
+                                        size: 11
+                                    }
+                                },
+                                grid: {
+                                    color: 'rgba(226, 232, 240, 0.6)'
+                                },
+                                min: 0,
+                                max: 450
+                            },
+                            yRate: {
+                                type: 'linear',
+                                display: true,
+                                position: 'right',
+                                title: {
+                                    display: true,
+                                    text: 'Growth Rate (g / day)',
+                                    font: {
+                                        weight: '600',
+                                        size: 11
+                                    }
+                                },
+                                grid: {
+                                    drawOnChartArea: false
+                                },
+                                min: 0,
+                                max: 40
+                            }
+                        },
+                        onClick: (e) => {
+                            const points = chartInstance.getElementsAtEventForMode(e, 'index', { intersect: false }, true);
+                            if (points.length) {
+                                const index = points[0].index;
+                                updateSelection(index);
+                            }
+                        }
+                    },
+                    plugins: [verticalLinePlugin]
+                });
+            }
+        }
+
+        function updateVerticalLine() {
+            // Recalculate dynamic upper axes boundaries to match variable slider ranges
+            chartInstance.options.scales.yYield.max = Math.ceil(L_val * 1.15 / 50) * 50;
+            // Adaptive scaling for rate axis max limit
+            const theoreticalMaxRate = (L_val * k_val) / 4;
+            chartInstance.options.scales.yRate.max = Math.ceil(theoreticalMaxRate * 1.3 / 5) * 5;
+        }
+
+        function updateSelection(dayIndex) {
+            selectedDay = dayIndex;
+            updateProbeUI(dayIndex);
+            chartInstance.draw(); // Redraw custom vertical annotation
+        }
+
+        // Listen to parametric sliders
+        const inputL = document.getElementById('param-L');
+        const inputk = document.getElementById('param-k');
+        const inputx0 = document.getElementById('param-x0');
+
+        const valL = document.getElementById('val-L');
+        const valk = document.getElementById('val-k');
+        const valx0 = document.getElementById('val-x0');
+
+        function onParameterChange() {
+            L_val = parseFloat(inputL.value);
+            k_val = parseFloat(inputk.value);
+            x0_val = parseInt(inputx0.value);
+
+            valL.textContent = `${L_val}g`;
+            valk.textContent = k_val.toFixed(2);
+            valx0.textContent = `Day ${x0_val}`;
+
+            // Rebuild scale boundaries, recalculate curves & render
+            createOrUpdateChart();
+            updateProbeUI(selectedDay);
+        }
+
+        inputL.addEventListener('input', onParameterChange);
+        inputk.addEventListener('input', onParameterChange);
+        inputx0.addEventListener('input', onParameterChange);
+
+        // Reset variables
+        document.getElementById('reset-params').addEventListener('click', () => {
+            inputL.value = 250;
+            inputk.value = 0.25;
+            inputx0.value = 15;
+            onParameterChange();
+        });
+
+        document.getElementById('btn-submit-quiz').addEventListener('click', () => {
+            const selectedOption = document.querySelector('input[name="quiz"]:checked');
+            const feedback = document.getElementById('quiz-feedback');
+            
+            if (!selectedOption) {
+                feedback.className = "text-xs text-amber-600 font-bold";
+                feedback.textContent = "Please pick an answer first!";
+                return;
+            }
+
+            if (selectedOption.value === 'b') {
+                feedback.className = "text-xs text-emerald-600 font-bold flex items-center gap-1";
+                feedback.innerHTML = `<i class="fa-solid fa-circle-check"></i> Correct! At inflection Day $x_0$, the second derivative is zero ($f''(x) = 0$), mapping to maximum growth velocity.`;
+            } else {
+                feedback.className = "text-xs text-rose-500 font-bold flex items-center gap-1";
+                feedback.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> Incorrect. Try again! (Hint: Maximum speed occurs midway).`;
+            }
+        });
+
+        // Initialize application on page fully loaded
+        window.onload = function() {
+            renderMath();
+            createOrUpdateChart();
+            updateSelection(15); // Default loaded focus
+        };
+    </script>
+</body>
+</html></pre>
+        </body>
+    </html>
